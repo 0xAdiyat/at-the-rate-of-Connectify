@@ -1,7 +1,5 @@
 import 'package:at_the_rate_of_connectify/widgets/swipe_down_loader.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
