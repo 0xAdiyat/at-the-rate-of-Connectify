@@ -14,7 +14,7 @@ class SwipeDownLoader extends StatefulWidget {
 class _SwipeDownLoaderState extends State<SwipeDownLoader>
     with SingleTickerProviderStateMixin {
   late final FlutterGifController _controller;
-  final double minSize = 50.0;
+  final double minSize = 45.0;
   final double maxSize = 120.0;
 
   @override
