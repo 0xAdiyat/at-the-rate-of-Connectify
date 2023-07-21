@@ -13,10 +13,8 @@ class SwipeDownLoader extends StatefulWidget {
 
 class _SwipeDownLoaderState extends State<SwipeDownLoader>
     with SingleTickerProviderStateMixin {
-  double swipeProgress = 0.0;
-  final int totalFrames = 100;
   late final FlutterGifController _controller;
-  final double minSize = 50.0;
+  final double minSize = 45.0;
   final double maxSize = 120.0;
 
   @override
@@ -24,10 +22,9 @@ class _SwipeDownLoaderState extends State<SwipeDownLoader>
     super.initState();
 
     _controller = FlutterGifController(
-        vsync: this,
-        duration: (const Duration(
-          milliseconds: 1000,
-        )));
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
   }
 
   @override
@@ -45,14 +42,13 @@ class _SwipeDownLoaderState extends State<SwipeDownLoader>
   }
 
   @override
-  Widget build(BuildContext context) {
-    double loaderSize = _calculateSize();
+  void didUpdateWidget(SwipeDownLoader oldWidget) {
+    super.didUpdateWidget(oldWidget);
 
     if (widget.scrollOffset > 29) {
       _controller.value = 0;
       _controller.animateTo(14.9);
-    }
-    if (widget.scrollOffset < 29) {
+    } else {
       _controller.value = widget.scrollOffset;
       _controller.animateTo(29);
       if (widget.scrollOffset == -0.0) {
@@ -60,8 +56,12 @@ class _SwipeDownLoaderState extends State<SwipeDownLoader>
         _controller.animateTo(14.9);
       }
     }
+  }
 
-    print("Sdkd: ${widget.scrollOffset}");
+  @override
+  Widget build(BuildContext context) {
+    final double loaderSize = _calculateSize();
+
     return GifImage(
       controller: _controller,
       height: loaderSize,
