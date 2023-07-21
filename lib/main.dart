@@ -1,8 +1,9 @@
-import 'package:at_the_rate_of_connectify/screens/home_screen.dart';
+import 'package:at_the_rate_of_connectify/screens/feed_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const FeedScreen(),
     );
   }
 }
